@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PROGRAM KALKULATOR</title>
+
+        <style>
+        body {
+            background-color: #fefefe;
+            font-family: Arial;
+        }
+
+        b {
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        center {
+            background-color: #FFE6D1;
+            width:450px;
+            margin:auto;
+            margin-top:50px;
+            padding:40px;
+            border-radius: 25px;
+            box-shadow:0 20px 25px rgba(0,0,0,0.2);       
+     }
+
+        table {
+            border-spacing:15px;
+            border-radius:20px;
+            overflow:hidden;
+        }
+
+        input {
+            width:100%;
+            height:70px;
+            background-color:#f9f6ef;
+            border:none;
+            border-radius:10px;
+            font-size:30px;
+            color:rgb(23, 22, 22);
+            text-align:right;
+            padding-right:15px;
+        }
+
+        button {
+            width:80px;
+            height:80px;
+            font-size:28px;
+            border:none;
+            border-radius:8px;
+            background-color:#6A4D73;
+            color:white;
+            cursor:pointer;
+        }
+
+        button:active{
+            transform:scale(0.9);
+        }
+
+        button{
+            transition:0.2s;
+        }
+
+        button:hover{
+            transform:scale(1.08);
+        }
+
+
+        #plus,#minus,#multiply,#divide,#equals{
+            background-color:#D66D6D;
+        }
+
+        #clear {
+            background-color:#802020;
+        }
+        </style>
+
+    </head>
+            <body>
+                <center>
+                    <b>PROGRAM KALKULATOR</b>
+                    <br><br>
+                    <table>
+                    <tr>
+                        <td colspan="4"><input id="layar" readonly style> </input></td>
+                    </tr>
+                    <tr>
+                        <td><button id="num1" onclick="tekanAngka('1')">1</button></td>
+                        <td><button id="num2" onclick="tekanAngka('2')">2</button></td>
+                        <td><button id="num3" onclick="tekanAngka('3')">3</button></td>
+                        <td><button id="plus" onclick="tekanOperator('+')">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="num4" onclick="tekanAngka('4')">4</button></td>
+                        <td><button id="num5" onclick="tekanAngka('5')">5</button></td>
+                        <td><button id="num6" onclick="tekanAngka('6')">6</button></td>
+                        <td><button id="minus" onclick="tekanOperator('-')">-</button></td>
+
+                    </tr>
+                    <tr>
+                        <td><button id="num7" onclick="tekanAngka('7')">7</button></td>
+                        <td><button id="num8" onclick="tekanAngka('8')">8</button></td>
+                        <td><button id="num9" onclick="tekanAngka('9')">9</button></td>
+                        <td><button id="multiply" onclick="tekanOperator('*')">*</button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="clear" onclick="clearLayar()">C</button></td>
+                        <td><button id="num0" onclick="tekanAngka('0')">0</button></td>
+                        <td><button id="equals" onclick="hitung()">=</button></td>
+                        <td><button id="divide" onclick="tekanOperator('/')">:</button></td>
+                    </tr>
+            </table>
+            </center>
+
+            <script>
+                function tekanAngka(angka) {
+                    var layar = document.getElementById("layar").value += angka;
+                }
+
+                function tekanOperator(operator) {
+                    var layar = document.getElementById("layar").value += operator;
+                }
+
+                function clearLayar() {
+                    document.getElementById("layar").value = "";
+                }
+
+                function hitung() {
+                    var layar = document.getElementById("layar").value;
+                    try {
+                        var hasil = eval(layar);
+                        document.getElementById("layar").value = hasil;
+                    } catch (error) {
+                        document.getElementById("layar").value = "Error";
+                    }
+                      
+                }
+            </script>
+       </body>
+</html>
